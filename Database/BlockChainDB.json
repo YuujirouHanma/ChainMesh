@@ -1,0 +1,12 @@
+[
+  {
+    "hash": "0",
+    "prev_hash": "0",
+    "message": "genesis",
+    "nonce": 0,
+    "proof_of_work": 0,
+    "number_of_block": 0,
+    "timeStamp": 0,
+    "signature": 0
+  }
+]

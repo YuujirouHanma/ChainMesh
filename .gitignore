@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment (jangan di-commit)
+VIRTUAL-ENVIRONMENT-PATH-HERE/
+upgrade/
+.venv/
+venv/
+
+# Wallet: berisi PRIVATE KEY, jangan pernah di-commit
+Database/NodeDB.json
+
+# File lock & file sementara dari Middleware/JSONWorker.py
+*.lock
+*.tmp
+
+# Data node tambahan untuk uji / demo di satu laptop (__executer__.py --data-dir nodes/...)
+nodes/
+
+# Demo web (demo/ + web/)
+demo/runtime/
+web/node_modules/
+web/dist/
