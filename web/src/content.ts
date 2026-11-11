@@ -2,7 +2,7 @@
 
 export const SITE = {
   name: 'ChainMesh',
-  repoUrl: 'https://github.com/abdanhafidz/blockchain-withp2p-network',
+  repoUrl: 'https://github.com/YuujirouHanma/ChainMesh',
   paperPdf: '/paper/theoretical-analysis-blockchain-p2p-network.pdf',
   paperSource:
     'https://github.com/abdanhafidz/blockchain-withp2p-network/blob/master/documentation/assets/theoretical-analysis-blockchain-p2p-network.pdf',
@@ -34,7 +34,7 @@ export const TEAM: TeamMember[] = [
   {
     // TODO(Kevin): sesuaikan deskripsi peranmu.
     name: SITE.author.name,
-    github: null,
+    github: 'YuujirouHanma',
     role: {
       en: 'Network and consensus fixes, testing, interactive web demo',
       id: 'Perbaikan jaringan dan konsensus, pengujian, demo web interaktif',
