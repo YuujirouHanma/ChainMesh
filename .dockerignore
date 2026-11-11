@@ -1,0 +1,17 @@
+# Jangan pernah masukkan wallet asli (berisi PRIVATE KEY) atau data node ke image
+Database/*.json
+Buffer/*.json
+nodes/
+demo/runtime/
+*.lock
+*.tmp
+
+# Lingkungan lokal dan hasil build (dibangun ulang di dalam Dockerfile)
+.git/
+VIRTUAL-ENVIRONMENT-PATH-HERE/
+.venv/
+venv/
+**/__pycache__/
+*.py[cod]
+web/node_modules/
+web/dist/
