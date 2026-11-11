@@ -6,7 +6,6 @@ export const SITE = {
   paperPdf: '/paper/theoretical-analysis-blockchain-p2p-network.pdf',
   paperSource:
     'https://github.com/abdanhafidz/blockchain-withp2p-network/blob/master/documentation/assets/theoretical-analysis-blockchain-p2p-network.pdf',
-  // TODO(Kevin): pastikan nama dan email ini benar sebelum deploy (diambil dari desain AI Studio).
   author: { name: 'Jeremia Kevin Alexandre', email: 'jeremiakevinalexandre@gmail.com' },
 };
 
@@ -32,7 +31,6 @@ export const TEAM: TeamMember[] = [
     role: { en: 'Contributor', id: 'Kontributor' },
   },
   {
-    // TODO(Kevin): sesuaikan deskripsi peranmu.
     name: SITE.author.name,
     github: 'YuujirouHanma',
     role: {
