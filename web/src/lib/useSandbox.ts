@@ -3,7 +3,7 @@ import type { ActionResult, ConnectionStatus, Quota, SandboxEvent, Snapshot } fr
 import { clientId, post, wsUrl } from './api';
 
 const MAX_EVENTS = 500;
-const WAKE_LIMIT_MS = 120_000;   // hosting gratis bisa butuh ~1 menit untuk bangun
+const WAKE_LIMIT_MS = 180_000;   // Render gratis: ±1 menit untuk bangun, lalu server mulai di 0,1 CPU
 const MAX_DROPS = 6;
 
 /** Koneksi live ke server demo: snapshot node, event log, kuota, dan aksi. */

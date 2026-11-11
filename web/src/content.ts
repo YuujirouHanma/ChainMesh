@@ -3,7 +3,8 @@
 export const SITE = {
   name: 'ChainMesh',
   repoUrl: 'https://github.com/YuujirouHanma/ChainMesh',
-  paperPdf: '/paper/theoretical-analysis-blockchain-p2p-network.pdf',
+  // BASE_URL = '/' (server demo) atau '/ChainMesh/' (GitHub Pages)
+  paperPdf: `${import.meta.env.BASE_URL}paper/theoretical-analysis-blockchain-p2p-network.pdf`,
   paperSource:
     'https://github.com/abdanhafidz/blockchain-withp2p-network/blob/master/documentation/assets/theoretical-analysis-blockchain-p2p-network.pdf',
   author: { name: 'Jeremia Kevin Alexandre', email: 'jeremiakevinalexandre@gmail.com' },

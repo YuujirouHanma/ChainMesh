@@ -1,0 +1,56 @@
+# Build web/ and publish it to GitHub Pages: https://<user>.github.io/<repo>/
+#
+# The live console on that page talks to the node sandbox server defined in render.yaml.
+# Tell the build where that server lives (once), then run this workflow again:
+#   gh variable set DEMO_API_URL --body "https://<service>.onrender.com"
+#   gh workflow run pages.yml
+# Without DEMO_API_URL the page still works; its console reports that the demo server is offline.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install
+        working-directory: web
+        run: npm ci --no-audit --no-fund
+      - name: Type-check and build
+        working-directory: web
+        env:
+          VITE_API_BASE: ${{ vars.DEMO_API_URL }}
+          BASE_PATH: /${{ github.event.repository.name }}/
+        run: npm run build -- --base="$BASE_PATH"
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
