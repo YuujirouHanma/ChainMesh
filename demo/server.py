@@ -20,12 +20,17 @@ import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from demo.sandbox import WEB_DIST, Sandbox, SandboxError
 
 TRUST_PROXY = os.environ.get("TRUST_PROXY", "") == "1"   # di belakang reverse proxy (Render, Fly, ...)
+# Halaman web di domain lain (mis. GitHub Pages) butuh izin CORS untuk POST /api/*.
+# Contoh: ALLOWED_ORIGINS=https://yuujirouhanma.github.io   (WebSocket tidak terkena CORS)
+ALLOWED_ORIGINS = [origin.strip().rstrip("/") for origin in os.environ.get("ALLOWED_ORIGINS", "").split(",")
+                   if origin.strip()]
 sandbox = Sandbox()
 
 
@@ -39,6 +44,9 @@ async def lifespan(_app):
 
 
 app = FastAPI(title="ChainMesh demo", lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
+if ALLOWED_ORIGINS:
+    app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS, allow_methods=["GET", "POST"],
+                       allow_headers=["Content-Type", "X-Client-Id"], max_age=600)
 
 
 def _ip(connection):
