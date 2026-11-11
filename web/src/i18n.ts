@@ -19,7 +19,7 @@ const en = {
     title1: 'A blockchain whose',
     title2: 'network is a graph.',
     subtitle:
-      'Every node is a vertex and every WebSocket connection is an edge weighted by latency. ChainMesh links all peers into a full mesh (the complete graph Kₙ), broadcasts blocks level by level, and repairs a damaged chain from its nearest neighbour.',
+      'ChainMesh joins two words: chain, as in blockchain, and mesh, as in a full-mesh network where every node connects directly to every other node, the complete graph Kₙ of graph theory. Each node is a vertex and each WebSocket connection is an edge weighted by latency. Blocks spread level by level, and a damaged chain is repaired from its nearest neighbour.',
     tryDemo: 'Try the live demo',
     viewCode: 'View code',
     readPaper: 'Read the paper',
@@ -456,7 +456,7 @@ const id: Strings = {
     title1: 'Blockchain yang',
     title2: 'jaringannya adalah graf.',
     subtitle:
-      'Setiap node adalah simpul dan setiap koneksi WebSocket adalah edge berbobot latency. ChainMesh menghubungkan semua peer menjadi full mesh (complete graph Kₙ), menyebarkan blok level demi level, dan memulihkan chain yang rusak dari tetangga terdekat.',
+      'ChainMesh gabungan dua kata: chain dari blockchain, dan mesh dari jaringan full mesh, tempat setiap node terhubung langsung ke semua node lain, yang dalam teori graf disebut complete graph Kₙ. Setiap node adalah vertex dan setiap koneksi WebSocket adalah edge berbobot latency. Blok menyebar level demi level, dan chain yang rusak dipulihkan dari tetangga terdekat.',
     tryDemo: 'Coba demo live',
     viewCode: 'Lihat kode',
     readPaper: 'Baca paper',
@@ -480,7 +480,7 @@ const id: Strings = {
     problemFoot: 'Bagaimana bentuk jaringannya, dan bagaimana node bisa sepakat?',
     approachTitle: 'Pendekatan',
     approachDesc:
-      'Jaringan dimodelkan sebagai graf berbobot G = (V, E, w): node adalah simpul, koneksi adalah edge, latency adalah bobot. Peer membentuk complete graph Kₙ, blok menyebar lewat traversal level-order, dan node yang tertinggal menyinkronkan diri dari tetangga terdekat, lalu mundur (backtracking) jika tetangga itu offline atau tidak jujur.',
+      'Jaringan dimodelkan sebagai graf berbobot G = (V, E, w): node adalah vertex, koneksi adalah edge, latency adalah bobot. Peer membentuk complete graph Kₙ, blok menyebar lewat traversal level-order, dan node yang tertinggal menyinkronkan diri dari tetangga terdekat, lalu mundur (backtracking) jika tetangga itu offline atau tidak jujur.',
     approachFoot: 'Paper: Theoretical Analysis, Abdan Hafidz (7 bagian)',
     outcomeTitle: 'Hasil',
     outcomeDesc:

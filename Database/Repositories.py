@@ -71,7 +71,7 @@ def ChainLock():
     return JSONWorker.FileLock(Config.BLOCKCHAIN_DB)
 
 
-# ------------------------------------------------------------------ jaringan (simpul graf)
+# ------------------------------------------------------------------ jaringan (vertex graf)
 _local_hosts = None
 
 
