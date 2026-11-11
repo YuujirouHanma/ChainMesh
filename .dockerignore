@@ -15,3 +15,7 @@ venv/
 *.py[cod]
 web/node_modules/
 web/dist/
+
+# Dokumentasi dan konfigurasi CI, tidak dibutuhkan di dalam image
+docs/
+.github/

@@ -1,0 +1,37 @@
+# Render Blueprint: the live node sandbox (FastAPI + 4-6 real node processes) behind the web page
+# on GitHub Pages. Create it once from https://render.com/deploy?repo=https://github.com/YuujirouHanma/ChainMesh
+#
+# Free plan: 0.1 CPU and 512 MB RAM. The service sleeps after 15 minutes without traffic and takes
+# about a minute to wake up; the web page shows "Waking the demo server up" meanwhile.
+services:
+  - type: web
+    name: chainmesh
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    # Rebuild only when the server or the nodes change. The page itself is served by GitHub Pages,
+    # so changes to web/ (or to docs) do not restart the sandbox.
+    buildFilter:
+      paths:
+        - "*.py"
+        - Buffer/**
+        - Controller/**
+        - Database/**
+        - Loader/**
+        - Middleware/**
+        - Models/**
+        - Network/**
+        - View/**
+        - demo/**
+        - requirements.txt
+        - Dockerfile
+        - .dockerignore
+    envVars:
+      - key: PORT
+        value: "8080"
+      # Origin of the GitHub Pages site, so the page may call this API (CORS)
+      - key: ALLOWED_ORIGINS
+        value: https://yuujirouhanma.github.io

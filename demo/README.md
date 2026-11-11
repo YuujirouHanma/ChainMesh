@@ -43,6 +43,7 @@ Konfigurasi (semua opsional):
 | `DEMO_RESET_MINUTES` | `30` | interval reset otomatis |
 | `DEMO_RUNTIME` | `demo/runtime` | folder data node demo |
 | `TRUST_PROXY` | – | `1` jika berjalan di belakang reverse proxy (pakai `X-Forwarded-For`) |
+| `ALLOWED_ORIGINS` | – | origin halaman web di domain lain yang boleh memanggil API (CORS), dipisah koma |
 
 ## Deploy
 
@@ -54,12 +55,30 @@ docker run -p 8080:8080 chainmesh              # buka http://localhost:8080
 ```
 
 `.dockerignore` mengecualikan `Database/*.json`, jadi private key wallet tidak ikut masuk image.
-Kebutuhan: satu container dengan sekitar 300 MB RAM dan dukungan WebSocket. Pilihan hosting gratis:
+Kebutuhan: satu container dengan sekitar 300 MB RAM dan dukungan WebSocket.
 
-- **Hugging Face Spaces (Docker)**: RAM besar; Space tertidur setelah lama tidak dipakai.
-  Tambahkan `app_port: 8080` di metadata README Space.
-- **Render (Web Service, Docker)**: instance gratis tertidur setelah 15 menit tanpa pengunjung.
-  Kunjungan pertama butuh ±1 menit; halaman web sudah menampilkan status "membangunkan server".
+Project ini memakai dua hosting gratis:
 
-Jika halaman web di-hosting terpisah (misalnya di hosting statis), build dengan
-`VITE_API_BASE=https://alamat-server-demo npm run build`.
+| Bagian | Hosting | Konfigurasi |
+|---|---|---|
+| Halaman web (statis) | GitHub Pages: selalu online, langsung terbuka | `.github/workflows/pages.yml` |
+| Server demo + node | Render, Web Service Docker (0,1 CPU, 512 MB) | `render.yaml` |
+
+Server Render tertidur setelah 15 menit tanpa pengunjung dan butuh sekitar satu menit untuk bangun.
+Karena halaman web ada di GitHub Pages, studi kasus dan figur tetap langsung terbuka; hanya konsol live
+yang menampilkan status "membangunkan server" sampai server siap.
+
+Setup sekali:
+
+1. Aktifkan GitHub Pages dengan sumber **GitHub Actions** (Settings → Pages). Setiap push yang mengubah
+   `web/` akan membangun ulang halaman.
+2. Buat server di Render dari blueprint: https://render.com/deploy?repo=https://github.com/YuujirouHanma/ChainMesh.
+   `render.yaml` sudah berisi `ALLOWED_ORIGINS` untuk domain GitHub Pages.
+3. Beri tahu halaman web alamat server itu, lalu bangun ulang:
+
+   ```bash
+   gh variable set DEMO_API_URL --body "https://<nama-service>.onrender.com"
+   gh workflow run pages.yml
+   ```
+
+Hugging Face Spaces tidak dipakai: sekarang Space dengan SDK Docker butuh paket berbayar.
