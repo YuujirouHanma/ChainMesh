@@ -1,5 +1,5 @@
-# Demo web K-Chain dalam satu image: halaman web (React) + sandbox node asli (Python).
-# Build: docker build -t k-chain .     Jalankan: docker run -p 8080:8080 k-chain
+# Demo web ChainMesh dalam satu image: halaman web (React) + sandbox node asli (Python).
+# Build: docker build -t chainmesh .     Jalankan: docker run -p 8080:8080 chainmesh
 
 # 1) build halaman web
 FROM node:22-alpine AS web
@@ -16,7 +16,7 @@ ENV PYTHONUNBUFFERED=1 \
     HOST=0.0.0.0 \
     PORT=8080 \
     TRUST_PROXY=1 \
-    DEMO_RUNTIME=/tmp/k-chain-runtime
+    DEMO_RUNTIME=/tmp/chainmesh-runtime
 WORKDIR /app
 COPY requirements.txt ./
 COPY demo/requirements.txt ./demo/requirements.txt

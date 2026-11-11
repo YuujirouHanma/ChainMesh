@@ -20,7 +20,7 @@ TESTS = ["test_unit", "test_concurrency", "test_cli_extra", "test_network"]
 
 def main():
     passed = failed = 0
-    with tempfile.TemporaryDirectory(prefix="k-chain-tests-") as scratch:
+    with tempfile.TemporaryDirectory(prefix="chainmesh-tests-") as scratch:
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
         for name in TESTS:
             print(f"=== {name}", flush=True)

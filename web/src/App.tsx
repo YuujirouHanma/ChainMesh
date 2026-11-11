@@ -13,14 +13,14 @@ import { useSandbox } from './lib/useSandbox';
 import type { Lang } from './types';
 
 function initialLang(): Lang {
-  const saved = localStorage.getItem('k-chain-lang');
+  const saved = localStorage.getItem('chainmesh-lang');
   if (saved === 'en' || saved === 'id') return saved;
   return navigator.language?.toLowerCase().startsWith('id') ? 'id' : 'en';
 }
 
 export default function App() {
   const [lang, setLang] = useState<Lang>(initialLang);
-  const [isDark, setIsDark] = useState(() => localStorage.getItem('k-chain-theme') !== 'light');
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('chainmesh-theme') !== 'light');
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const [paperOpen, setPaperOpen] = useState(false);
   const sandbox = useSandbox();
@@ -28,12 +28,12 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
-    localStorage.setItem('k-chain-theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('chainmesh-theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
   useEffect(() => {
     document.documentElement.lang = lang;
-    localStorage.setItem('k-chain-lang', lang);
+    localStorage.setItem('chainmesh-lang', lang);
   }, [lang]);
 
   useEffect(() => {

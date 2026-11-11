@@ -30,7 +30,7 @@ export function Header({ t, lang, onToggleLang, isDark, onToggleDark, reducedMot
   return (
     <header className="sticky top-0 z-50 bg-[#070504]/90 backdrop-blur-xl border-b border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <a href="#hero" className="flex items-center gap-2.5 shrink-0 group" aria-label="K-Chain">
+        <a href="#hero" className="flex items-center gap-2.5 shrink-0 group" aria-label={SITE.name}>
           <Logo className="w-7 h-7 transition-transform group-hover:rotate-45" />
           <span className="font-sans text-lg font-bold tracking-tight text-white">
             {SITE.name}

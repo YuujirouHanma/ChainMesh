@@ -38,7 +38,7 @@ async def lifespan(_app):
         await sandbox.shutdown()
 
 
-app = FastAPI(title="K-Chain demo", lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
+app = FastAPI(title="ChainMesh demo", lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
 
 
 def _ip(connection):
@@ -53,7 +53,7 @@ def _tag(client_id):
     """Penanda pengunjung (bukan IP): hash dari id acak yang dibuat browser."""
     if not client_id:
         return "anon"
-    return hashlib.sha256(("k-chain:" + str(client_id)[:64]).encode()).hexdigest()[:10]
+    return hashlib.sha256(("chainmesh:" + str(client_id)[:64]).encode()).hexdigest()[:10]
 
 
 async def _body(request):

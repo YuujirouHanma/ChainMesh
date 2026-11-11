@@ -1,10 +1,10 @@
 import type { ActionResult, Quota } from '../types';
 
-// Kosong = server yang sama dengan halaman ini. Isi VITE_API_BASE (mis. https://k-chain.onrender.com)
+// Kosong = server yang sama dengan halaman ini. Isi VITE_API_BASE (mis. https://chainmesh.onrender.com)
 // jika web di-hosting terpisah dari server demo.
 export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, '') ?? '';
 
-const CLIENT_KEY = 'k-chain-client-id';
+const CLIENT_KEY = 'chainmesh-client-id';
 let cachedId = '';
 
 /** Id acak per browser, hanya untuk menandai "aksimu" vs "pengunjung lain" di log. */

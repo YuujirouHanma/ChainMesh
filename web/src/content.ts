@@ -1,7 +1,7 @@
 // Data situs di satu tempat: nama, peran, dan link. Ubah di sini, bukan di komponen.
 
 export const SITE = {
-  name: 'K-Chain',
+  name: 'ChainMesh',
   repoUrl: 'https://github.com/abdanhafidz/blockchain-withp2p-network',
   paperPdf: '/paper/theoretical-analysis-blockchain-p2p-network.pdf',
   paperSource:

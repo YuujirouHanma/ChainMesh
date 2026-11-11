@@ -19,7 +19,7 @@ const en = {
     title1: 'A blockchain whose',
     title2: 'network is a graph.',
     subtitle:
-      'Every node is a vertex and every WebSocket connection is an edge weighted by latency. K-Chain uses that model to connect peers as a complete graph, broadcast blocks level by level, and repair a damaged chain from its nearest neighbour.',
+      'Every node is a vertex and every WebSocket connection is an edge weighted by latency. ChainMesh links all peers into a full mesh (the complete graph Kₙ), broadcasts blocks level by level, and repairs a damaged chain from its nearest neighbour.',
     tryDemo: 'Try the live demo',
     viewCode: 'View code',
     readPaper: 'Read the paper',
@@ -428,7 +428,7 @@ const en = {
     fallback: 'Your browser cannot show the PDF here.',
   },
   footer: {
-    line: 'K-Chain · Graph Theory final project',
+    line: 'ChainMesh · Graph Theory final project',
     built: 'Built with Python, WebSocket and React',
     contact: 'Contact',
     top: 'Back to top',
@@ -456,7 +456,7 @@ const id: Strings = {
     title1: 'Blockchain yang',
     title2: 'jaringannya adalah graf.',
     subtitle:
-      'Setiap node adalah simpul dan setiap koneksi WebSocket adalah edge berbobot latency. K-Chain memakai model itu untuk menghubungkan peer sebagai complete graph, menyebarkan blok level demi level, dan memulihkan chain yang rusak dari tetangga terdekat.',
+      'Setiap node adalah simpul dan setiap koneksi WebSocket adalah edge berbobot latency. ChainMesh menghubungkan semua peer menjadi full mesh (complete graph Kₙ), menyebarkan blok level demi level, dan memulihkan chain yang rusak dari tetangga terdekat.',
     tryDemo: 'Coba demo live',
     viewCode: 'Lihat kode',
     readPaper: 'Baca paper',
@@ -865,7 +865,7 @@ const id: Strings = {
     fallback: 'Browser-mu tidak bisa menampilkan PDF di sini.',
   },
   footer: {
-    line: 'K-Chain · Tugas akhir Teori Graf',
+    line: 'ChainMesh · Tugas akhir Teori Graf',
     built: 'Dibuat dengan Python, WebSocket, dan React',
     contact: 'Kontak',
     top: 'Kembali ke atas',

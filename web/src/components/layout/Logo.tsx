@@ -1,4 +1,4 @@
-/** Logo K-Chain: graf lengkap K₄ (4 simpul, 6 edge). */
+/** Logo ChainMesh: graf lengkap K₄ (4 simpul, 6 edge). */
 export function Logo({ className = 'w-7 h-7' }: { className?: string }) {
   const points = [
     [8, 8],

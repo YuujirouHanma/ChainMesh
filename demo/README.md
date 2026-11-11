@@ -1,4 +1,4 @@
-# Demo web K-Chain
+# Demo web ChainMesh
 
 Halaman portofolio (studi kasus + 6 figur) dan **konsol live** yang mengendalikan node asli project ini.
 
@@ -49,8 +49,8 @@ Konfigurasi (semua opsional):
 Satu image Docker berisi web dan node:
 
 ```bash
-docker build -t k-chain .
-docker run -p 8080:8080 k-chain              # buka http://localhost:8080
+docker build -t chainmesh .
+docker run -p 8080:8080 chainmesh              # buka http://localhost:8080
 ```
 
 `.dockerignore` mengecualikan `Database/*.json`, jadi private key wallet tidak ikut masuk image.
